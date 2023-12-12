@@ -3,12 +3,35 @@ package Client.Controllers.Entity;
 import Client.Controllers.Intarfaces.OpenWindowInt;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class CompaniesDB {
+    @FXML
+    private TableView companies;
+    @FXML
+    private Label ResultLabel2;
+    @FXML
+    private Button DeleteButton;
+    @FXML
+    private TextField id_for_delete;
+    @FXML
+    private TextField id_for_add;
+    @FXML
+    private TextField name_for_add;
+    @FXML
+    private TextField addr_for_add;
+    @FXML
+    private TextField num_for_add;
+    @FXML
+    private TextField price_for_add;
+    @FXML
+    private Button AddButton;
     @FXML
     private Button UsersDB;
     @FXML

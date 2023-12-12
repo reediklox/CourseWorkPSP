@@ -3,12 +3,13 @@ package Server.Entity;
 import java.io.Serializable;
 import lombok.Getter;
 
-@Getter
+
 public class Users implements Serializable {
+    @Getter
     private Integer user_id;
+    @Getter
     private String login, password;
 
-    @Getter
     private boolean active;
 
     public void setUser_id(Integer user_id){
@@ -24,6 +25,7 @@ public class Users implements Serializable {
     }
 
     public void setActive(boolean active){this.active = active;}
+    public Boolean getActive() {return this.active;}
 
     @Override
     public String toString(){
