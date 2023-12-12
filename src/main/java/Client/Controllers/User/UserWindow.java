@@ -1,6 +1,5 @@
 package Client.Controllers.User;
 
-import Client.Controllers.Auth;
 import Client.Controllers.Intarfaces.OpenWindowInt;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

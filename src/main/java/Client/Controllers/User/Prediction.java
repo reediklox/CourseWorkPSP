@@ -1,7 +1,6 @@
 package Client.Controllers.User;
 
 import Client.Controllers.Intarfaces.OpenWindowInt;
-import Server.Entity.Users;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
