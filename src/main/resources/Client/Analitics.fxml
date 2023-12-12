@@ -296,7 +296,7 @@
                                     <TextField fx:id="ProductCount" layoutX="14.0" layoutY="318.0" promptText="Количество товаров" />
                                     <TextField fx:id="ProductPrice" layoutX="429.0" layoutY="318.0" promptText="Цена за товар" />
                                     <Button fx:id="ResultMarj" alignment="CENTER" layoutX="247.0" layoutY="420.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #DAADE5;" text="Анализ" textFill="WHITE" />
-                                    <Label fx:id="ResultMarj" alignment="CENTER" layoutX="241.0" layoutY="385.0" prefHeight="22.0" prefWidth="110.0" style="-fx-border-color: black; -fx-border-width: 0.2;" text="Маржинальность" textFill="#995696" />
+                                    <Label fx:id="ResultMarjLabel" alignment="CENTER" layoutX="241.0" layoutY="385.0" prefHeight="22.0" prefWidth="110.0" style="-fx-border-color: black; -fx-border-width: 0.2;" text="Маржинальность" textFill="#995696" />
                                             </children>
                                         </AnchorPane>
                                     </content>
