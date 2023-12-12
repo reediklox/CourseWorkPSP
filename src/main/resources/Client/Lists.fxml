@@ -170,7 +170,7 @@
                                                         </Label>
                                                     </children>
                                                 </HBox>
-                                    <TableView layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
+                                    <TableView fx:id="providers" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                        <columns>
                                           <TableColumn editable="false" prefWidth="49.0" text="ID" />
                                           <TableColumn editable="false" minWidth="0.0" prefWidth="126.0" text="Номер телефона" />
@@ -202,7 +202,7 @@
                                                         </Label>
                                                     </children>
                                                 </HBox>
-                                                <TableView layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
+                                                <TableView fx:id="cost_data" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                                     <columns>
                                                         <TableColumn prefWidth="75.0" text="ID" />
                                                         <TableColumn minWidth="0.0" prefWidth="164.0" text="Себестоимость" />
@@ -233,7 +233,7 @@
                                                         </Label>
                                                     </children>
                                                 </HBox>
-                                                <TableView layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
+                                                <TableView fx:id="companies" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                                     <columns>
                                                         <TableColumn prefWidth="75.0" text="ID" />
                                                         <TableColumn prefWidth="173.0" text="Тип налога" />
@@ -264,7 +264,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <TableView layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
+                                    <TableView fx:id="attritions" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                        <columns>
                                           <TableColumn editable="false" prefWidth="49.0" text="ID" />
                                           <TableColumn editable="false" minWidth="0.0" prefWidth="154.0" text="Название оборудования" />

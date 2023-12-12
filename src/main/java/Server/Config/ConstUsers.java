@@ -5,4 +5,5 @@ public class ConstUsers {
     public static final String USER_ID = "user_id";
     public static final String LOGIN = "login";
     public static final String PASSWORD = "password";
+    public static final String ACTIVE = "active";
 }

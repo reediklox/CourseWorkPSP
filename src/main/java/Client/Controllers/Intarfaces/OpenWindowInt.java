@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public interface OpenWindowInt {
-
     static void OpenWindow(Button button, String window) throws IOException {
         AtomicReference<Double> x = new AtomicReference<>((double) 0);
         AtomicReference<Double> y = new AtomicReference<>((double) 0);
@@ -36,5 +35,4 @@ public interface OpenWindowInt {
         stage.setScene(scene);
         stage.show();
     }
-
 }
