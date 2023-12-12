@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="608.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controllers.Entity.AttritionDB">
+    <children>
+        <ImageView fitHeight="608.0" fitWidth="777.0" opacity="0.65">
+            <image>
+                <Image url="@images/background.jpg" />
+            </image>
+        </ImageView>
+        <BorderPane prefHeight="608.0" prefWidth="777.0">
+            <left>
+                <VBox prefHeight="533.0" prefWidth="185.0" style="-fx-background-color: #DAADE5;" BorderPane.alignment="TOP_LEFT">
+                    <children>
+                        <Button fx:id="UsersDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Пользователи" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <graphic>
+                                <ImageView cache="true" fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Users_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="ProvidersDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Поставщики" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Supplier_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <Bloom threshold="0.44" />
+                            </effect>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="MaterialsDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Сырье" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Layers_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="ExpencesDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Затраты" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/EuroMoney_2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="CompaniesDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Компании" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/BusinessBuilding_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="AttritionDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #995696;" text="Амортизация" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom threshold="0.44" />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Error_2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                     <VBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </VBox.margin>
+                        </Button>
+                        <Button fx:id="TaxDB" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Налоги" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Tax_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+                </VBox>
+            </left>
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="777.0" style="-fx-background-color: #995696;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Меню работы с амортизацией" textAlignment="CENTER" translateX="20.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                        </Text>
+                        <ImageView fx:id="CloseButton" fitHeight="31.0" fitWidth="31.0" translateX="454.0">
+                            <image>
+                                <Image url="@images/icons8-отмена-64.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </top>
+            <center>
+                <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

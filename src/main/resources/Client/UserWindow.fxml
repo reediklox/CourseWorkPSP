@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="608.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controllers.User.UserWindow">
+    <children>
+        <ImageView fitHeight="608.0" fitWidth="777.0" opacity="0.65">
+            <image>
+                <Image url="@images/background.jpg" />
+            </image>
+        </ImageView>
+        <BorderPane prefHeight="608.0" prefWidth="777.0">
+            <left>
+                <VBox prefHeight="533.0" prefWidth="185.0" style="-fx-background-color: #DAADE5;" BorderPane.alignment="TOP_LEFT">
+                    <children>
+                        <Button fx:id="Calcs" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Расчеты" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom threshold="0.0" />
+                            </effect>
+                            <graphic>
+                                <ImageView cache="true" fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Calculate_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets top="1.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="DataLists" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Списки" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/BigData.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                        </Button>
+                        <Button fx:id="Analitics" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Аналитика" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Analytics.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="Forecasting" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Прогнозирование" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Clouds_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="Comparison" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #0000;" text="Сравнение" textFill="WHITE">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0">
+                                    <image>
+                                        <Image url="@images/Comparing.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+            </left>
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="777.0" style="-fx-background-color: #995696;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Меню пользователя" textAlignment="CENTER" translateX="20.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Bloom />
+                            </effect>
+                        </Text>
+                  <Pane prefHeight="75.0" prefWidth="291.0" translateX="208.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="14.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Логин:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="UserLogin" fill="WHITE" layoutX="82.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <effect>
+                              <Bloom />
+                           </effect>
+                        </Text>
+                     </children>
+                  </Pane>
+                        <ImageView fx:id="CloseButton" fitHeight="31.0" fitWidth="31.0" translateX="258.0">
+                            <image>
+                                <Image url="@images/icons8-отмена-64.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="WHITE" layoutX="160.0" layoutY="46.0" opacity="0.74" strokeType="OUTSIDE" strokeWidth="0.0" text="Добро пожаловать!">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Text>
+               </children>
+            </Pane>
+         </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
