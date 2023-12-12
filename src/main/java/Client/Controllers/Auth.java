@@ -50,6 +50,9 @@ public class Auth implements OpenWindowInt {
         });
     }
 
+    public String getLogin(){
+        return LoginInputField.getText();
+    }
     /*private void OpenWindow(Button button, String window) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ClientApp.class.getResource(window));
         Stage stage1 = (Stage) button.getScene().getWindow();
@@ -88,6 +91,10 @@ public class Auth implements OpenWindowInt {
 
         if (login.equals("ADMIN") && pass.equals("ADMIN")){
             OpenWindowInt.OpenWindow(EnterButton, "/Client/AdminWindow.fxml");
+        }
+
+        if (login.equals("reedik") && pass.equals("lox")){
+            OpenWindowInt.OpenWindow(EnterButton, "/Client/UserWindow.fxml");
         }
     }
 }
