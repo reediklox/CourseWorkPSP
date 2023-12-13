@@ -1,6 +1,7 @@
 package Client.Controllers.User;
 
 import Client.Controllers.Intarfaces.OpenWindowInt;
+import Server.Services.DataBase.DBHandlerUsers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,11 +45,14 @@ public class ComparisonWin {
     @FXML
     private TextField CountField;
 
+    DBHandlerUsers dbHandlerUsers = new DBHandlerUsers();
+
     @FXML
     void initialize() {
-        UserLogin.setText("reedik");
+        UserLogin.setText(dbHandlerUsers.getUserLogin());
 
         CloseButton.setOnMouseClicked(event -> {
+            dbHandlerUsers.setActivityFalse();
             Stage stage = (Stage) CloseButton.getScene().getWindow();
             stage.close();
         });

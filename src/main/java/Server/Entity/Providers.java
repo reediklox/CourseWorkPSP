@@ -48,6 +48,16 @@ public class Providers {
         setMaterial_cost_per_piece(material_cost_per_piece);
     }
 
+    public Providers(String mobile_number,
+                     Integer material_id,
+                     Integer material_count,
+                     Integer material_cost_per_piece){
+        setMobile_number(mobile_number);
+        this.material_id = material_id;
+        setMaterial_count(material_count);
+        setMaterial_cost_per_piece(material_cost_per_piece);
+    }
+
     @Override
     public String toString(){
         return "Providers{" +

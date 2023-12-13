@@ -2,7 +2,6 @@ package Server.Controllers;
 
 import Server.Entity.Users;
 import Server.Services.DataBase.DBHandlerUsers;
-import Server.Services.DeEnCode;
 
 public class AuthController {
     public Users authentication(String login, String password) {
@@ -10,7 +9,7 @@ public class AuthController {
         Users user = new Users();
         user = dbHandler.getUserForAuth(login);
         if(user != null){
-            if(password.equals(DeEnCode.decode(user.getPassword()))){
+            if(password.equals(user.getPassword())){
                 System.out.println("пароль верный");
                 return user;
             }else{

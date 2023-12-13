@@ -1,5 +1,6 @@
 package Client.Controllers;
 
+import Client.Config.ConnectInfo;
 import Client.Controllers.Intarfaces.OpenWindowInt;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -7,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.Socket;
 
 public class Auth implements OpenWindowInt {
     double x, y = 0;
@@ -88,12 +90,32 @@ public class Auth implements OpenWindowInt {
 
         if (login.equals("ADMIN") && pass.equals("ADMIN")){
             OpenWindowInt.OpenWindow(EnterButton, "/Client/AdminWindow.fxml");
+            return;
         }
-        else if (login.equals("reedik") && pass.equals("lox")){
-            OpenWindowInt.OpenWindow(EnterButton, "/Client/UserWindow.fxml");
-        }
-        else {
-            FailLabel.setText("Ввыедены неверные данные!");
+
+        try(Socket clientSocket = new Socket(ConnectInfo.IP,ConnectInfo.PORT);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
+        {
+            writer.write("auth");writer.newLine();
+            writer.write(login);writer.newLine();
+            writer.write(pass); writer.newLine();
+            writer.flush();
+            String flag = reader.readLine();
+            if(flag == null){
+                FailLabel.setText("Неверный логин или пароль!");
+                return;
+            }
+            System.out.println(flag);
+            if(flag.equals("успешно")){
+                String acc_login = reader.readLine();
+                System.out.println(acc_login);
+                OpenWindowInt.OpenWindow(EnterButton, "/Client/UserWindow.fxml");
+            }else{
+                System.out.println("Что-то пошло не так...");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

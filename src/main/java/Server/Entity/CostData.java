@@ -24,6 +24,11 @@ public class CostData {
         setDate_of_calc(date_of_calc);
     }
 
+    public CostData(Integer total_cost_price, String date_of_calc){
+        this.total_cost_price = total_cost_price;
+        setDate_of_calc(date_of_calc);
+    }
+
     @Override
     public String toString(){
         return "CostData{" +

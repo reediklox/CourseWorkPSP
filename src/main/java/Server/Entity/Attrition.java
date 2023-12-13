@@ -41,6 +41,13 @@ public class Attrition {
         setEquip_cost(equip_cost);
     }
 
+    public Attrition(String equip_name, Integer equip_life, String date_of_equip_purchase, Integer equip_cost) {
+        this.equip_name = equip_name;
+        setEquip_life(equip_life);
+        setDate_of_equip_purchase(date_of_equip_purchase);
+        setEquip_cost(equip_cost);
+    }
+
     @Override
     public String toString(){
         return "Attrition{" +

@@ -15,6 +15,9 @@ public class Materials {
         this.material_id = material_id;
         this.material_name = material_name;
     }
+    public Materials(String material_name){
+        this.material_name = material_name;
+    }
 
     @Override
     public String toString(){

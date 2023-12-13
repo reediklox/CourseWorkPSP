@@ -1,6 +1,8 @@
 package Server.Entity;
 
 import java.io.Serializable;
+
+import Server.Entity.Interface.IntegerValidate;
 import lombok.Getter;
 
 
@@ -13,7 +15,7 @@ public class Users implements Serializable {
     private boolean active;
 
     public void setUser_id(Integer user_id){
-        this.user_id = user_id;
+        this.user_id = IntegerValidate.SetInteger(user_id);
     }
 
     public void setLogin(String login){
@@ -37,6 +39,13 @@ public class Users implements Serializable {
     }
 
     public Users() {}
+
+    public Users(Integer user_id, String login, String password){
+        this.user_id = IntegerValidate.SetInteger(user_id);
+        this.login = login;
+        this.password = password;
+        this.active = false;
+    }
 
     public Users(String login, String password){
         this.login = login;

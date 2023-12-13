@@ -23,4 +23,11 @@ public class Tax {
         }
         this.tax_percent = tax_percent;
     }
+    public Tax(String tax_type, Integer tax_percent){
+        this.tax_type = tax_type;
+        if (tax_percent > 100 || tax_percent < 1){
+            tax_percent = RandomGenerator.getDefault().nextInt(1, 101);
+        }
+        this.tax_percent = tax_percent;
+    }
 }

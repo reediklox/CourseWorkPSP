@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConnectToDB extends Configs {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
-        String connection = "jdbc:mysql://localhost:3306/CostCalc?user=root&password=1234";
+        String connection = "jdbc:mysql://localhost:3306/costcalc?user=root&password=1234";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection dbConnection;
         dbConnection = DriverManager.getConnection(connection);

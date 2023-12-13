@@ -195,9 +195,9 @@
                                     </HBox>
                                     <TableView fx:id="tax" layoutY="67.0" prefHeight="218.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn prefWidth="48.0" text="ID" />
-                                          <TableColumn prefWidth="135.0" text="Тип налога" />
-                                          <TableColumn minWidth="0.0" prefWidth="135.0" text="Процент" />
+                                          <TableColumn fx:id="t_id" prefWidth="48.0" text="ID" />
+                                          <TableColumn fx:id="t_type" prefWidth="135.0" text="Тип налога" />
+                                          <TableColumn fx:id="t_per" minWidth="0.0" prefWidth="135.0" text="Процент" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -206,7 +206,6 @@
                                     <Label fx:id="ResultLabel2" alignment="CENTER" layoutX="199.0" layoutY="471.0" prefHeight="17.0" prefWidth="194.0" textAlignment="CENTER" textFill="#bdb4bf" />
                                     <Button fx:id="DeleteButton" alignment="CENTER" layoutX="435.0" layoutY="431.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #DAADE5;" text="Удалить" textFill="WHITE" />
                                     <TextField fx:id="id_for_delete" layoutX="391.0" layoutY="400.0" prefHeight="25.0" prefWidth="188.0" promptText="ID" />
-                                    <TextField fx:id="id_for_add" layoutX="15.0" layoutY="350.0" prefHeight="25.0" prefWidth="188.0" promptText="ID" />
                                     <TextField fx:id="type_for_add" layoutX="15.0" layoutY="375.0" prefHeight="25.0" prefWidth="188.0" promptText="Тип затраты" />
                                     <TextField fx:id="percent_for_add" layoutX="15.0" layoutY="400.0" prefHeight="25.0" prefWidth="188.0" promptText="Процент" />
                                     <Button fx:id="AddButton" alignment="CENTER" layoutX="59.0" layoutY="431.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #DAADE5;" text="Добавить" textFill="WHITE" />

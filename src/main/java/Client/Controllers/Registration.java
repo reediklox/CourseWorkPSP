@@ -1,5 +1,6 @@
 package Client.Controllers;
 
+import Client.Config.ConnectInfo;
 import Client.Controllers.Intarfaces.OpenWindowInt;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.Socket;
 
 public class Registration implements OpenWindowInt {
     double x, y = 0;
@@ -43,6 +45,9 @@ public class Registration implements OpenWindowInt {
                 throw new RuntimeException(e);
             }
         });
+        RegistrationButton.setOnAction(event -> {
+            sendRegData();
+        });
     }
 
     /*private void OpenAuthWondow() throws IOException {
@@ -66,4 +71,40 @@ public class Registration implements OpenWindowInt {
         stage.setScene(scene);
         stage.show();
     }*/
+
+    private void sendRegData(){
+
+        String login, password;
+        login = LoginField.getText();
+        password = PasswordField.getText();
+
+        if(login.isEmpty()){
+            System.out.println("поле с логином пусто!");
+            return;
+        }
+
+        if(password.isEmpty()){
+            System.out.println("поле с паролем пусто!");
+            return;
+        }
+
+        try(Socket clientSocket = new Socket(ConnectInfo.IP,ConnectInfo.PORT);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
+        {
+            writer.write("registration");writer.newLine();
+            writer.write(login);writer.newLine();
+            writer.write(password); writer.newLine();
+            writer.flush();
+            String response = reader.readLine();
+            System.out.println(response);
+            if(response.equals("success")){
+                OpenWindowInt.OpenWindow(RegistrationButton, "/Client/Auth.fxml");
+            }else{
+                System.out.println("Ошибка регистрации");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

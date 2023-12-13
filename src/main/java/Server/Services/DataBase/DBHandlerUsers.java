@@ -22,7 +22,7 @@ public class DBHandlerUsers extends ConnectToDB{
             pr.setString(1, user.getLogin());
             pr.setString(2, user.getPassword());
             pr.setBoolean(3, user.getActive());
-
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,6 +69,58 @@ public class DBHandlerUsers extends ConnectToDB{
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setActivityTrue(int id){
+        String update = "UPDATE " + ConstUsers.TABLE +
+                " SET " + ConstUsers.ACTIVE + "=? WHERE " + ConstUsers.USER_ID + "=?";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(update);
+            preparedStatement.setBoolean(1, true);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setActivityFalse(){
+        String update = "UPDATE " + ConstUsers.TABLE +
+                " SET " + ConstUsers.ACTIVE + "=? WHERE " + ConstUsers.ACTIVE + "=?";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(update);
+            preparedStatement.setBoolean(1, false);
+            preparedStatement.setBoolean(2, true);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getUserLogin(){
+        ResultSet resSet = null;
+        Users users = new Users();
+        String select = "SELECT * FROM "+ConstUsers.TABLE+" WHERE " +
+                ConstUsers.ACTIVE + "=?";
+        try {
+            PreparedStatement prSt = getConnection().prepareStatement(select);
+            prSt.setBoolean(1,true);
+            resSet = prSt.executeQuery();
+            while (resSet.next()){
+                users.setUser_id(resSet.getInt("user_id"));
+                users.setLogin(resSet.getString("login"));
+                users.setPassword(resSet.getString("password"));
+                users.setActive(resSet.getBoolean("active"));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return users.getLogin();
     }
 
     public Users getUserForAuth(String login){

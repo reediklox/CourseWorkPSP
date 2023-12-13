@@ -21,4 +21,6 @@ module CostCalculation {
     opens Client.Controllers.Admin to javafx.fxml;
     exports Client.Controllers.User;
     opens Client.Controllers.User to javafx.fxml;
+    exports Server.Entity;
+    opens Server.Entity to javafx.fxml;
 }

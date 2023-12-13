@@ -24,6 +24,11 @@ public class Expences {
         setExpency_amount(expency_amount);
     }
 
+    public Expences(String expency_type, Integer expency_amount){
+        this.expency_type = expency_type;
+        setExpency_amount(expency_amount);
+    }
+
     @Override
     public String toString(){
         return "Expences{" +

@@ -1,6 +1,7 @@
 package Client.Controllers.User;
 
 import Client.Controllers.Intarfaces.OpenWindowInt;
+import Server.Services.DataBase.DBHandlerUsers;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
@@ -72,11 +73,14 @@ public class Analitics {
     @FXML
     private Label ResultMarjLabel;
 
+    DBHandlerUsers dbHandlerUsers = new DBHandlerUsers();
+
     @FXML
     void initialize() {
-        UserLogin.setText("reedik");
+        UserLogin.setText(dbHandlerUsers.getUserLogin());
 
         CloseButton.setOnMouseClicked(event -> {
+            dbHandlerUsers.setActivityFalse();
             Stage stage = (Stage) CloseButton.getScene().getWindow();
             stage.close();
         });

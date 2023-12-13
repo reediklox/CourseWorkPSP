@@ -1,6 +1,7 @@
 package Client.Controllers.User;
 
 import Client.Controllers.Intarfaces.OpenWindowInt;
+import Server.Services.DataBase.DBHandlerUsers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class UserWindow {
+    DBHandlerUsers dbHandlerUsers = new DBHandlerUsers();
     @FXML
     private Button Calcs;
 
@@ -33,9 +35,10 @@ public class UserWindow {
 
     @FXML
     void initialize(){
-        UserLogin.setText("reedik");
+        UserLogin.setText(dbHandlerUsers.getUserLogin());
 
         CloseButton.setOnMouseClicked(event -> {
+            dbHandlerUsers.setActivityFalse();
             Stage stage = (Stage) CloseButton.getScene().getWindow();
             stage.close();
         });

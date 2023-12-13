@@ -30,6 +30,13 @@ public class Companies {
         this.company_mobile_number = company_mobile_number;
         setOffered_price(offered_price);
     }
+    public Companies(String company_name, String company_address, String company_mobile_number, Integer offered_price)
+        {
+            this.company_name = company_name;
+            this.company_address = company_address;
+            this.company_mobile_number = company_mobile_number;
+            setOffered_price(offered_price);
+        }
 
     @Override
     public String toString(){

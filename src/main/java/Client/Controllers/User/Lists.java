@@ -1,6 +1,7 @@
 package Client.Controllers.User;
 
 import Client.Controllers.Intarfaces.OpenWindowInt;
+import Server.Services.DataBase.DBHandlerUsers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,12 +44,14 @@ public class Lists {
     @FXML
     private TableView<String> attritions; // replace 'String' on Server.Entity.Attritions
 // End of the block to update
+    DBHandlerUsers dbHandlerUsers = new DBHandlerUsers();
 
     @FXML
     void initialize(){
-        UserLogin.setText("reedik");
+        UserLogin.setText(dbHandlerUsers.getUserLogin());
 
         CloseButton.setOnMouseClicked(event -> {
+            dbHandlerUsers.setActivityFalse();
             Stage stage = (Stage) CloseButton.getScene().getWindow();
             stage.close();
         });
