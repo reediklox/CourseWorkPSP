@@ -6,12 +6,13 @@ import Server.Entity.Interface.IntegerValidate;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
 @Setter
 @Getter
-public class Attrition {
+public class Attrition implements Serializable {
     @Setter
     private Integer attrition_id;
     @Setter

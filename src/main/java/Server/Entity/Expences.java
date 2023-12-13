@@ -4,8 +4,10 @@ import Server.Entity.Interface.IntegerValidate;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
-public class Expences {
+public class Expences implements Serializable {
     @Setter
     private Integer expency_id;
     @Setter

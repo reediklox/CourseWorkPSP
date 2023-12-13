@@ -60,6 +60,10 @@ public class UsersDB implements OpenWindowInt {
         });
 
         DeleteButton.setOnAction(event -> {
+            if(user_id_for_delete.getText().isEmpty())
+            {
+                ResultLabel2.setText("воу воу, нет данных");
+            }
             deleteUser();
         });
 

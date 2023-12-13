@@ -5,8 +5,10 @@ import javafx.scene.Parent;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
-public class Providers {
+public class Providers implements Serializable {
     private Integer provider_id;
     private String mobile_number;
     @Setter

@@ -18,7 +18,7 @@ public class DBHandlerTax extends ConnectToDB{
 
         pr.setString(1, tax.getTax_type());
         pr.setInt(2, tax.getTax_percent());
-
+        pr.executeUpdate();
         return 1;
     } catch (SQLException e) {
         e.printStackTrace();

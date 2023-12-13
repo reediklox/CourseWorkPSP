@@ -23,7 +23,7 @@ public class DBHandlerAttrition extends ConnectToDB{
             pr.setInt(2, attritions.getEquip_life());
             pr.setString(3, attritions.getDate_of_equip_purchase());
             pr.setInt(4, attritions.getEquip_cost());
-
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();

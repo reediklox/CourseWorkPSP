@@ -24,7 +24,7 @@ public class DBHandlerProviders extends ConnectToDB{
             pr.setInt(2, providers.getMaterial_id());
             pr.setInt(3, providers.getMaterial_count());
             pr.setInt(4, providers.getMaterial_cost_per_piece());
-
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();

@@ -18,7 +18,7 @@ public class DBHandlerCostData extends ConnectToDB{
 
             pr.setInt(1, cost.getTotal_cost_price());
             pr.setString(2, cost.getDate_of_calc());
-
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();

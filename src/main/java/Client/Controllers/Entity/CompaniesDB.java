@@ -134,6 +134,10 @@ public class CompaniesDB {
             reloadInfo();
         });
         DeleteButton.setOnAction(event -> {
+            if(id_for_delete.getText().isEmpty())
+            {
+                ResultLabel2.setText("воу воу, нет данных");
+            }
             deleteCompanies();
         });
     }
@@ -183,7 +187,7 @@ public class CompaniesDB {
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
         {
             String id = id_for_delete.getText();
-            writer.write("deleteCompanies");writer.newLine();
+            writer.write("deleteCompany");writer.newLine();
             writer.write(id);
             writer.flush();
             id_for_delete.setText("");
@@ -197,7 +201,7 @@ public class CompaniesDB {
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
         {
-            writer.write("addCompanies");writer.newLine();
+            writer.write("addCompany");writer.newLine();
             writer.write(name);writer.newLine();
             writer.write(addr);writer.newLine();
             writer.write(num);writer.newLine();

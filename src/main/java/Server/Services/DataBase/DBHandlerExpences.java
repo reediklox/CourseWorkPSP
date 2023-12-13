@@ -18,7 +18,7 @@ public class DBHandlerExpences extends ConnectToDB{
 
             pr.setString(1, expence.getExpency_type());
             pr.setInt(2, expence.getExpency_amount());
-
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();

@@ -92,6 +92,10 @@ public class ProvidersDB {
             reloadInfo();
         });
         DeleteButton.setOnAction(event -> {
+            if(id_for_delete.getText().isEmpty())
+            {
+                ResultLabel2.setText("воу воу, нет данных");
+            }
             deleteProvider();
         });
         UsersDB.setOnAction(event -> {

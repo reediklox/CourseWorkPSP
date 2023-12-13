@@ -106,12 +106,11 @@ public class ServerApp {
                                     }break;
                                     case "addProvider": {
                                         System.out.println("~~~Добавление поставщика~~~");
-                                        String id = reader.readLine();
                                         String number = reader.readLine();
                                         Integer mId = Integer.parseInt(reader.readLine());
                                         Integer count = Integer.parseInt(reader.readLine());
                                         Integer cost = Integer.parseInt(reader.readLine());
-                                        System.out.println(id + " " + number + " " + mId + " " + count + " " + cost);
+                                        System.out.println(number + " " + mId + " " + count + " " + cost);
                                         DBHandlerProviders dbHandlerProviders = new DBHandlerProviders();
                                         Providers providers = new Providers(number, mId, count, cost);
                                         dbHandlerProviders.addProvider(providers);
@@ -131,9 +130,8 @@ public class ServerApp {
                                     }break;
                                     case "addMaterial":{
                                         System.out.println("~~~Добавление сырья~~~");
-                                        String id = reader.readLine();
                                         String name = reader.readLine();
-                                        System.out.println(id + " " + name);
+                                        System.out.println(name);
                                         DBHandlerMaterials dbHandlerMaterials = new DBHandlerMaterials();
                                         Materials materials = new Materials(name);
                                         dbHandlerMaterials.addMaterial(materials);
@@ -159,10 +157,9 @@ public class ServerApp {
                                     }break;
                                     case "addExpence":{
                                         System.out.println("~~~Добавление затраты~~~");
-                                        String id = reader.readLine();
                                         String type = reader.readLine();
                                         Integer amount = Integer.parseInt(reader.readLine());
-                                        System.out.println(id + " " + type + " " + amount);
+                                        System.out.println(type + " " + amount);
                                         DBHandlerExpences dbHandlerExpences = new DBHandlerExpences();
                                         Expences expences = new Expences(type, amount);
                                         dbHandlerExpences.addExpence(expences);
@@ -188,12 +185,11 @@ public class ServerApp {
                                     }break;
                                     case "addCompany":{
                                         System.out.println("~~~Добавление компании~~~");
-                                        String id = reader.readLine();
                                         String name = reader.readLine();
                                         String addr = reader.readLine();
                                         String num = reader.readLine();
                                         Integer price = Integer.parseInt(reader.readLine());
-                                        System.out.println(id + " " + name + " " + addr + " " + num + " " + price);
+                                        System.out.println(name + " " + addr + " " + num + " " + price);
                                         DBHandlerCompanies dbHandlerCompanies = new DBHandlerCompanies();
                                         Companies companies = new Companies(name, addr, num, price);
                                         dbHandlerCompanies.addCompany(companies);
@@ -219,12 +215,11 @@ public class ServerApp {
                                     }break;
                                     case "addAttrition": {
                                         System.out.println("~~~Добавление амортизации~~~");
-                                        String id = reader.readLine();
                                         String name = reader.readLine();
                                         Integer life = Integer.parseInt(reader.readLine());
                                         String date = reader.readLine();
                                         Integer cost = Integer.parseInt(reader.readLine());
-                                        System.out.println(id + " " + name + " " + life + " " + date + " " + cost);
+                                        System.out.println(name + " " + life + " " + date + " " + cost);
                                         DBHandlerAttrition dbHandlerAttrition = new DBHandlerAttrition();
                                         Attrition attrition = new Attrition(name, life, date, cost);
                                         dbHandlerAttrition.addAttrition(attrition);
@@ -250,10 +245,9 @@ public class ServerApp {
                                     }break;
                                     case "addTax":{
                                         System.out.println("~~~Добавление налога~~~");
-                                        String id = reader.readLine();
                                         String type = reader.readLine();
                                         Integer percent = Integer.parseInt(reader.readLine());
-                                        System.out.println(id + " " + type + " " + percent);
+                                        System.out.println(type + " " + percent);
                                         DBHandlerTax dbHandlerTax = new DBHandlerTax();
                                         Tax tax = new Tax(type, percent);
                                         dbHandlerTax.addTax(tax);

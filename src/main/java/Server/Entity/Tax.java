@@ -3,12 +3,13 @@ package Server.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
 @Getter
 @Setter
-public class Tax {
+public class Tax implements Serializable {
     private Integer tax_id;
     private String tax_type;
     private Integer tax_percent;

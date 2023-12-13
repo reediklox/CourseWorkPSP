@@ -23,7 +23,7 @@ public class DBHandlerCompanies extends ConnectToDB {
             pr.setString(2, companies.getCompany_address());
             pr.setString(3, companies.getCompany_mobile_number());
             pr.setInt(4, companies.getOffered_price());
-
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();

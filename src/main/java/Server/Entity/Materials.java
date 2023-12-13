@@ -3,9 +3,11 @@ package Server.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class Materials {
+public class Materials implements Serializable {
     private Integer material_id;
     private String material_name;
 

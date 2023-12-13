@@ -4,8 +4,10 @@ import Server.Entity.Interface.IntegerValidate;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
-public class Companies {
+public class Companies implements Serializable {
     @Setter
     private Integer company_id;
     @Setter

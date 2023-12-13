@@ -120,6 +120,10 @@ public class ExpencesDB {
             reloadInfo();
         });
         DeleteButton.setOnAction(event -> {
+            if(id_for_delete.getText().isEmpty())
+            {
+                ResultLabel2.setText("воу воу, нет данных");
+            }
             deleteExpences();
         });
     }
@@ -181,7 +185,7 @@ public class ExpencesDB {
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
         {
-            writer.write("addExpences");writer.newLine();
+            writer.write("addExpence");writer.newLine();
             writer.write(type);writer.newLine();
             writer.write(amount);
             writer.flush();

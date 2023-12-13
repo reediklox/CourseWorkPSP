@@ -4,8 +4,10 @@ import Server.Entity.Interface.DateValidate;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
-public class CostData {
+public class CostData implements Serializable {
     @Setter
     private Integer cost_data_id;
     @Setter

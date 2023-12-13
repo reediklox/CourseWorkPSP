@@ -17,6 +17,7 @@ public class DBHandlerMaterials extends ConnectToDB{
 
             pr.setString(1, material.getMaterial_name());
 
+            pr.executeUpdate();
             return 1;
         } catch (SQLException e) {
             e.printStackTrace();
