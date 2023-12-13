@@ -182,9 +182,9 @@
                                                 </HBox>
                                                 <TableView fx:id="cost_data" layoutY="67.0" prefHeight="218.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="ID" />
-                                                        <TableColumn prefWidth="235.0" text="Себестоимость" />
-                                                        <TableColumn minWidth="0.0" prefWidth="250.0" text="Дата расчета" />
+                                                        <TableColumn fx:id="id_cost" prefWidth="75.0" text="ID" />
+                                                        <TableColumn fx:id="cost_cost" prefWidth="235.0" text="Себестоимость" />
+                                                        <TableColumn fx:id="date_cost" minWidth="0.0" prefWidth="250.0" text="Дата расчета" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

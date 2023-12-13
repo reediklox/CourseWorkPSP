@@ -179,9 +179,9 @@
                                                 </HBox>
                                                 <TableView fx:id="expences" layoutY="67.0" prefHeight="218.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="ID" />
-                                                        <TableColumn prefWidth="235.0" text="Тип расхода" />
-                                                        <TableColumn minWidth="0.0" prefWidth="250.0" text="Сумма расхоода" />
+                                                        <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                                                        <TableColumn fx:id="type" prefWidth="235.0" text="Тип расхода" />
+                                                        <TableColumn fx:id="amount" minWidth="0.0" prefWidth="250.0" text="Сумма расхоода" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

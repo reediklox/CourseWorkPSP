@@ -1,7 +1,9 @@
 package Server.Services.DataBase;
 
 import Server.Config.ConstExpences;
+import Server.Config.ConstUsers;
 import Server.Entity.Expences;
+import Server.Entity.Users;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +29,81 @@ public class DBHandlerExpences extends ConnectToDB{
         }
 
         return 0;
+    }
+
+    public Integer getTotalExpences(){
+        Integer total = 0;
+        String select = "SELECT * FROM " +ConstExpences.TABLE;
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Expences expence = new Expences();
+                expence.setExpency_id(resultSet.getInt(ConstExpences.EXPENCY_ID));
+                expence.setExpency_type(resultSet.getString(ConstExpences.EXPENCY_TYPE));
+                expence.setExpency_amount(resultSet.getInt(ConstExpences.EXPENCY_AMOUNT));
+                total += expence.getExpency_amount();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return total;
+    }
+
+    public Double getAVGExpences(){
+        Double total = 0.0;
+        Double price = 0.0;
+        double count = 1.0;
+        String select = "SELECT * FROM " +ConstExpences.TABLE;
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Expences expence = new Expences();
+                expence.setExpency_id(resultSet.getInt(ConstExpences.EXPENCY_ID));
+                expence.setExpency_type(resultSet.getString(ConstExpences.EXPENCY_TYPE));
+                expence.setExpency_amount(resultSet.getInt(ConstExpences.EXPENCY_AMOUNT));
+                price += expence.getExpency_amount();
+                count++;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        total = price / count;
+        return total;
+    }
+
+    public Integer getCUExpences(){
+        String com_usl = "комунальные услуги";
+        Integer total = 0;
+        String select = "SELECT * FROM " +ConstExpences.TABLE;
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Expences expence = new Expences();
+                expence.setExpency_id(resultSet.getInt(ConstExpences.EXPENCY_ID));
+                expence.setExpency_type(resultSet.getString(ConstExpences.EXPENCY_TYPE));
+                expence.setExpency_amount(resultSet.getInt(ConstExpences.EXPENCY_AMOUNT));
+                if(expence.getExpency_type().equalsIgnoreCase(com_usl)){
+                    total += expence.getExpency_amount();
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return total;
     }
 
     public ArrayList<Expences> getExpences(){

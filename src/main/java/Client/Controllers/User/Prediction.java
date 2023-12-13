@@ -1,19 +1,33 @@
 package Client.Controllers.User;
 
+import Client.Config.ConnectInfo;
 import Client.Controllers.Intarfaces.OpenWindowInt;
+import Server.Entity.Expences;
+import Server.Services.DataBase.DBHandlerExpences;
 import Server.Services.DataBase.DBHandlerUsers;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.w3c.dom.ranges.Range;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.random.RandomGenerator;
 
 public class Prediction {
+    @FXML
+    private TableColumn<Expences, Integer> id;
+    @FXML
+    private TableColumn<Expences, String> type;
+    @FXML
+    private TableColumn<Expences, Integer> amount;
     @FXML
     private Button Calcs;
     @FXML
@@ -40,7 +54,7 @@ public class Prediction {
 
 // Block to update
     @FXML
-    private TableView<String> expences; // replace 'String' on Server.Entity.Excences
+    private TableView<Expences> expences; // replace 'String' on Server.Entity.Excences
 // End of the block to update
     @FXML
     private CheckBox Winter;
@@ -51,6 +65,7 @@ public class Prediction {
     @FXML
     private CheckBox Autumn;
     DBHandlerUsers dbHandlerUsers = new DBHandlerUsers();
+    DBHandlerExpences dbHandlerExpences = new DBHandlerExpences();
 
     @FXML
     void initialize(){
@@ -62,6 +77,29 @@ public class Prediction {
             Stage stage = (Stage) CloseButton.getScene().getWindow();
             stage.close();
         });
+
+        expences.setOnMouseClicked(event -> {
+            reloadInfoExp();
+        });
+
+        ResultButton.setOnAction(event -> {
+            if (!Spring.isSelected() && !Summer.isSelected() && !Autumn.isSelected() && !Winter.isSelected()){
+                ResultLabel2.setText("Ошибка!");
+                return;
+            }
+            double perc = 0;
+            if(Winter.isSelected()){
+                perc = RandomGenerator.getDefault().nextDouble(0.2, 0.3);
+            }else{
+                perc = RandomGenerator.getDefault().nextDouble(0.01, 0.15);
+            }
+
+            double CU = dbHandlerExpences.getCUExpences();
+
+            double res = CU + CU * perc;
+            PredictResult.setText("" + res);
+        });
+
 
         Calcs.setOnAction(event -> {
             try {
@@ -139,5 +177,42 @@ public class Prediction {
                 Winter.setSelected(false);
             }
         });
+    }
+
+    void reloadInfoExp(){
+        try(Socket clientSocket = new Socket(ConnectInfo.IP,ConnectInfo.PORT);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
+        {
+            writer.write("getExpences");writer.newLine();
+            writer.flush();
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
+                try {
+                    Object object = objectInputStream.readObject();
+                    ArrayList<Expences> materials = (ArrayList<Expences>) object;
+                    System.out.println(materials.size());
+                    printExpences(materials);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void printExpences(ArrayList<Expences> materials1){
+        for(Expences m:materials1){
+            System.out.println(m.toString());
+        }
+        ObservableList<Expences> observableList = FXCollections.observableArrayList(materials1);
+        expences.setItems(observableList);
+        id.setCellValueFactory(new PropertyValueFactory<Expences,Integer>("expency_id"));
+        type.setCellValueFactory(new PropertyValueFactory<Expences,String>("expency_type"));
+        amount.setCellValueFactory(new PropertyValueFactory<Expences,Integer>("expency_amount"));
     }
 }

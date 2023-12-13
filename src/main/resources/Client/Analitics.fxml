@@ -207,9 +207,9 @@
                                                 </HBox>
                                                 <TableView fx:id="companies" layoutY="67.0" prefHeight="218.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="ID" />
-                                                        <TableColumn minWidth="0.0" prefWidth="268.0" text="Название компании" />
-                                                        <TableColumn prefWidth="216.0" text="Предлагаемая цена" />
+                                                        <TableColumn fx:id="com_id" prefWidth="75.0" text="ID" />
+                                                        <TableColumn fx:id="com_name" minWidth="0.0" prefWidth="268.0" text="Название компании" />
+                                                        <TableColumn fx:id="com_cost" prefWidth="216.0" text="Предлагаемая цена" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -219,7 +219,7 @@
                                     <Label fx:id="BestPriceC" alignment="CENTER" layoutX="13.0" layoutY="342.0" prefHeight="22.0" prefWidth="110.0" style="-fx-border-color: black; -fx-border-width: 0.2;" text="Лушая цена" textFill="#00c30a" />
                                     <Label fx:id="MeanPriceC" alignment="CENTER" layoutX="241.0" layoutY="342.0" prefHeight="22.0" prefWidth="110.0" style="-fx-border-color: black; -fx-border-width: 0.2;" text="Средняя цена" textFill="#c3c600" />
                                     <Label fx:id="WorstPriceC" alignment="CENTER" layoutX="468.0" layoutY="342.0" prefHeight="22.0" prefWidth="110.0" style="-fx-border-color: black; -fx-border-width: 0.2;" text="Худшая цена" textFill="#c30000" />
-                                    <Button alignment="CENTER" layoutX="247.0" layoutY="420.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #DAADE5;" text="Анализ" textFill="WHITE" />
+                                    <Button fx:id="com_a" alignment="CENTER" layoutX="247.0" layoutY="420.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #DAADE5;" text="Анализ" textFill="WHITE" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -242,10 +242,10 @@
                                                 </HBox>
                                                 <TableView fx:id="providers" layoutY="67.0" prefHeight="218.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="ID" />
-                                                        <TableColumn prefWidth="151.0" text="Номер поставщика" />
-                                                        <TableColumn minWidth="0.0" prefWidth="196.0" text="Название материала" />
-                                          <TableColumn prefWidth="183.0" text="Цена материала, шт" />
+                                                        <TableColumn fx:id="p_id" prefWidth="75.0" text="ID" />
+                                                        <TableColumn fx:id="p_num" prefWidth="151.0" text="Номер поставщика" />
+                                                        <TableColumn fx:id="p_mat" minWidth="0.0" prefWidth="196.0" text="Название материала" />
+                                          <TableColumn fx:id="p_price" prefWidth="183.0" text="Цена материала, шт" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -280,9 +280,9 @@
                                                 </HBox>
                                                 <TableView fx:id="expences" layoutY="67.0" prefHeight="218.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn editable="false" prefWidth="82.0" text="ID" />
-                                                        <TableColumn editable="false" minWidth="0.0" prefWidth="349.0" text="Тип расхода" />
-                                                        <TableColumn editable="false" prefWidth="144.0" text="Сумма расхода" />
+                                                        <TableColumn fx:id="e_id" editable="false" prefWidth="82.0" text="ID" />
+                                                        <TableColumn fx:id="e_type" editable="false" minWidth="0.0" prefWidth="349.0" text="Тип расхода" />
+                                                        <TableColumn fx:id="e_amount" editable="false" prefWidth="144.0" text="Сумма расхода" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

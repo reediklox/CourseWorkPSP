@@ -52,6 +52,30 @@ public class DBHandlerTax extends ConnectToDB{
         return taxes;
     }
 
+    public Double getPercent(int id){
+        double res = 0;
+        String select = "SELECT * FROM " + ConstTax.TABLE + " WHERE " + ConstTax.TAX_ID + "='" + id + "'; ";
+
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Tax tax = new Tax();
+                tax.setTax_id(resultSet.getInt(ConstTax.TAX_ID));
+                tax.setTax_type(resultSet.getString(ConstTax.TAX_TYPE));
+                tax.setTax_percent(resultSet.getInt(ConstTax.TAX_PERCENT));
+                res = (double) tax.getTax_percent() / 100;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
     public void deleteTax(int id){
         String delete = "DELETE FROM " + ConstTax.TABLE + " WHERE " + ConstTax.TAX_ID + "='" + id + "'; ";
         try{

@@ -34,6 +34,87 @@ public class DBHandlerCompanies extends ConnectToDB {
         return 0;
     }
 
+    public Integer getBestPrice(){
+        Integer price = 0;
+        String select = "SELECT * FROM " +ConstCompanies.TABLE;
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Companies company = new Companies();
+                company.setCompany_id(resultSet.getInt(ConstCompanies.COMPANY_ID));
+                company.setCompany_name(resultSet.getString(ConstCompanies.COMPANY_NAME));
+                company.setCompany_address(resultSet.getString(ConstCompanies.COMPANY_ADDRESS));
+                company.setCompany_mobile_number(resultSet.getString(ConstCompanies.COMPANY_MOBILE_NUMBER));
+                company.setOffered_price(resultSet.getInt(ConstCompanies.OFFERED_PRICE));
+                if (company.getOffered_price() > price){
+                    price = company.getOffered_price();
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return price;
+    }
+
+    public Integer getWorstPrice(){
+        Integer price = getBestPrice();
+        String select = "SELECT * FROM " +ConstCompanies.TABLE;
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Companies company = new Companies();
+                company.setCompany_id(resultSet.getInt(ConstCompanies.COMPANY_ID));
+                company.setCompany_name(resultSet.getString(ConstCompanies.COMPANY_NAME));
+                company.setCompany_address(resultSet.getString(ConstCompanies.COMPANY_ADDRESS));
+                company.setCompany_mobile_number(resultSet.getString(ConstCompanies.COMPANY_MOBILE_NUMBER));
+                company.setOffered_price(resultSet.getInt(ConstCompanies.OFFERED_PRICE));
+                if (company.getOffered_price() < price){
+                    price = company.getOffered_price();
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return price;
+    }
+
+    public Double getAvgPrice(){
+        Integer price = 0;
+        int count = 0;
+        String select = "SELECT * FROM " +ConstCompanies.TABLE;
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                Companies company = new Companies();
+                company.setCompany_id(resultSet.getInt(ConstCompanies.COMPANY_ID));
+                company.setCompany_name(resultSet.getString(ConstCompanies.COMPANY_NAME));
+                company.setCompany_address(resultSet.getString(ConstCompanies.COMPANY_ADDRESS));
+                company.setCompany_mobile_number(resultSet.getString(ConstCompanies.COMPANY_MOBILE_NUMBER));
+                company.setOffered_price(resultSet.getInt(ConstCompanies.OFFERED_PRICE));
+                price += company.getOffered_price();
+                count++;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return (double) (price / count);
+    }
+
     public ArrayList<Companies> getCompanies(){
         ArrayList<Companies> companies = new ArrayList<>();
         String select = "SELECT * FROM " +ConstCompanies.TABLE;

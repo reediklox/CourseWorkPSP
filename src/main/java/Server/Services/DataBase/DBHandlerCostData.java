@@ -16,7 +16,7 @@ public class DBHandlerCostData extends ConnectToDB{
         try {
             PreparedStatement pr = getConnection().prepareStatement(insert);
 
-            pr.setInt(1, cost.getTotal_cost_price());
+            pr.setDouble(1, cost.getTotal_cost_price());
             pr.setString(2, cost.getDate_of_calc());
             pr.executeUpdate();
             return 1;
@@ -50,6 +50,29 @@ public class DBHandlerCostData extends ConnectToDB{
         }
 
         return costs;
+    }
+
+    public Integer getCost(int id){
+        Integer total = 0;
+        String select = "SELECT * FROM " +ConstCostData.TABLE + " WHERE " + ConstCostData.COST_DATA_ID + "='" + id + "'; ";
+        try{
+            PreparedStatement pr =getConnection().prepareStatement(select);
+            ResultSet resultSet = pr.executeQuery();
+            while (resultSet.next()){
+                CostData cost = new CostData();
+                cost.setCost_data_id(resultSet.getInt(ConstCostData.COST_DATA_ID));
+                cost.setTotal_cost_price(resultSet.getInt(ConstCostData.TOTAL_COST_PRICE));
+                cost.setDate_of_calc(resultSet.getString(ConstCostData.DATE_OF_CALC));
+                total = cost.getTotal_cost_price();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return total;
     }
 
     public void deleteCost(int id){

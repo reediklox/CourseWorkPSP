@@ -258,7 +258,28 @@ public class ServerApp {
                                         DBHandlerTax dbHandlerTax= new DBHandlerTax();
                                         dbHandlerTax.deleteTax(Integer.parseInt(id));
                                     }break;
-
+                                    case "addCost":{
+                                        System.out.println("~~~Добавление себестоимости~~~");
+                                        Integer cost = Integer.parseInt(reader.readLine());
+                                        String date = reader.readLine();
+                                        System.out.println(cost + " " + date);
+                                        DBHandlerCostData dbHandlerCostData = new DBHandlerCostData();
+                                        CostData costData = new CostData(cost, date);
+                                        dbHandlerCostData.addCost(costData);
+                                    }break;
+                                    case "getCost":{
+                                        System.out.println("~~~Вывод себестоимости~~~");
+                                        ArrayList<CostData> costData = new ArrayList<CostData>();
+                                        DBHandlerCostData db = new DBHandlerCostData();
+                                        costData = db.getCosts();
+                                        try {
+                                            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                                            objectOutputStream.writeObject(costData);
+                                        }
+                                        catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }break;
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();

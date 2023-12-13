@@ -172,11 +172,11 @@
                                                 </HBox>
                                     <TableView fx:id="providers" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn editable="false" prefWidth="49.0" text="ID" />
-                                          <TableColumn editable="false" minWidth="0.0" prefWidth="126.0" text="Номер телефона" />
-                                          <TableColumn editable="false" prefWidth="142.0" text="Материаал" />
-                                          <TableColumn editable="false" prefWidth="154.0" text="Количество материала" />
-                                          <TableColumn prefWidth="134.0" text="Цена за штуку" />
+                                          <TableColumn fx:id="p_id" editable="false" prefWidth="49.0" text="ID" />
+                                          <TableColumn fx:id="p_num" editable="false" minWidth="0.0" prefWidth="126.0" text="Номер телефона" />
+                                          <TableColumn fx:id="p_mat" editable="false" prefWidth="142.0" text="Материаал" />
+                                          <TableColumn fx:id="p_count" editable="false" prefWidth="154.0" text="Количество материала" />
+                                          <TableColumn fx:id="p_price" prefWidth="134.0" text="Цена за штуку" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -204,9 +204,9 @@
                                                 </HBox>
                                                 <TableView fx:id="cost_data" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="ID" />
-                                                        <TableColumn minWidth="0.0" prefWidth="164.0" text="Себестоимость" />
-                                                        <TableColumn prefWidth="179.0" text="Дата расчета" />
+                                                        <TableColumn fx:id="c_id" prefWidth="75.0" text="ID" />
+                                                        <TableColumn fx:id="c_cost" minWidth="0.0" prefWidth="164.0" text="Себестоимость" />
+                                                        <TableColumn fx:id="c_date" prefWidth="179.0" text="Дата расчета" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -235,9 +235,9 @@
                                                 </HBox>
                                                 <TableView fx:id="companies" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="ID" />
-                                                        <TableColumn prefWidth="173.0" text="Тип налога" />
-                                                        <TableColumn minWidth="0.0" prefWidth="164.0" text="Процент налога" />
+                                                        <TableColumn fx:id="com_id" prefWidth="75.0" text="ID" />
+                                                        <TableColumn fx:id="com_name" prefWidth="173.0" text="Навзание" />
+                                                        <TableColumn fx:id="com_cost" minWidth="0.0" prefWidth="164.0" text="Предлагаемая цена" />
                                                     </columns>
                                                     <columnResizePolicy>
                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -266,11 +266,11 @@
                                     </HBox>
                                     <TableView fx:id="attritions" layoutY="67.0" prefHeight="435.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn editable="false" prefWidth="49.0" text="ID" />
-                                          <TableColumn editable="false" minWidth="0.0" prefWidth="154.0" text="Название оборудования" />
-                                          <TableColumn editable="false" prefWidth="91.0" text="Срок жизни" />
-                                          <TableColumn editable="false" prefWidth="165.0" text="Дата приобретения" />
-                                          <TableColumn prefWidth="134.0" text="Цена обновления" />
+                                          <TableColumn fx:id="a_id" editable="false" prefWidth="49.0" text="ID" />
+                                          <TableColumn fx:id="a_name" editable="false" minWidth="0.0" prefWidth="154.0" text="Название оборудования" />
+                                          <TableColumn fx:id="a_life" editable="false" prefWidth="91.0" text="Срок жизни" />
+                                          <TableColumn fx:id="a_date" editable="false" prefWidth="165.0" text="Дата приобретения" />
+                                          <TableColumn fx:id="a_cost" prefWidth="134.0" text="Цена обновления" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
